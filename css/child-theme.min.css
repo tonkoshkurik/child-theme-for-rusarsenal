@@ -7179,12 +7179,22 @@ ul#main-menu > li > a.nav-link {
   box-sizing: border-box;
   color: #ffffff;
   display: block;
+<<<<<<< HEAD
   font: bold 16px/20px "Montserrat",sans-serif;
   margin-right: 4px;
   padding: 20px 22px;
   position: relative;
   text-transform: uppercase;
   z-index: 1; }
+=======
+  font: bold 18px/20px "Montserrat",sans-serif;
+  margin-right: 4px;
+  padding: 22px 38px;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+  transition: all 0.5s ease 0s; }
+>>>>>>> 97ff59c7b51cfb949e54da9aaf99027470d7f8c8
 
 ul#main-menu > li > a.nav-link:hover {
   color: #c73a33;
@@ -7439,6 +7449,7 @@ li.active a {
   display: block !important;
   float: left !important;
   clear: left !important;
+<<<<<<< HEAD
   padding: 5px;
   font-weight: 600; }
 
@@ -7465,3 +7476,6 @@ li.active a {
 
 .price-list, .podpis {
   text-transform: uppercase; }
+=======
+  padding: 5px; }
+>>>>>>> 97ff59c7b51cfb949e54da9aaf99027470d7f8c8
