@@ -52,6 +52,7 @@
 #top {
     background: rgba(0, 0, 0, 0) url("../src/img/heder-top.jpg") no-repeat scroll left top / cover ;
     padding: 38px 0;
+    margin-bottom: 70px;
 }
 .navbar-dark {
     background: #000 none repeat scroll 0 0;
@@ -362,7 +363,9 @@ li.active a {
    border-color: white;
 }
 
-
+#footer {
+    margin-top: 70px;
+}
 #footer-menu > li {
     display: block !important;
     float: left !important;
