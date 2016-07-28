@@ -10,13 +10,18 @@ function understrap_remove_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
+
+function wc_remove_related_products( $args ) {
+    return array();
+}
+add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.css', array());
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), '0.1.0', true );
 }
-
     if (function_exists('register_sidebar')) {
     	register_sidebar(array(
     		'name'=> 'Top Tabs',
