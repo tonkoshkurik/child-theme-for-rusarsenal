@@ -49,8 +49,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 *
 	 * @hooked woocommerce_template_loop_product_title - 10
 	 */
+	echo '</a>';
 	echo '<div class="vm-product-details-container">';
-	do_action( 'woocommerce_shop_loop_item_title' );
+	woocommerce_template_loop_product_link_open();
+	woocommerce_template_loop_product_title();
+	echo '</a>';
+	// do_action( 'woocommerce_shop_loop_item_title' );
 
 	/**
 	 * woocommerce_after_shop_loop_item_title hook.
@@ -58,7 +62,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_rating - 5
 	 * @hooked woocommerce_template_loop_price - 10
 	 */
-	do_action( 'woocommerce_after_shop_loop_item_title' );
+	woocommerce_template_loop_price();
+	//do_action( 'woocommerce_after_shop_loop_item_title' );
 
 	/**
 	 * woocommerce_after_shop_loop_item hook.
@@ -66,7 +71,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_product_link_close - 5
 	 * @hooked woocommerce_template_loop_add_to_cart - 10
 	 */
-	do_action( 'woocommerce_after_shop_loop_item' );
+	//do_action( 'woocommerce_after_shop_loop_item' );
+	woocommerce_template_loop_add_to_cart();
 	echo '<div class="clearfix"></div></div>';
 	?>
 </li>

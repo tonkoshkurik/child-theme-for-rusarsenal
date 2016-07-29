@@ -34,6 +34,18 @@ get_header( 'shop' ); ?>
 				 */
 				// do_action( 'woocommerce_before_main_content' );
 				woocommerce_breadcrumb();
+				// print_r(get_the_terms( $post->ID, 'product_cat'));
+
+				$descendant = get_the_terms( $post->ID, 'product_cat' );
+		        $descendant = array_reverse($descendant);
+		        $descendant = $descendant[0];
+		        $descendant_id = $descendant->term_id;
+ 				$descendant_term = get_term_by("id", $descendant_id, "product_cat");
+        		$descendant_link = get_term_link( $descendant_term->slug, $descendant_term->taxonomy );
+        		echo '<div class="reutn_to_main">';
+		        // echo '<a href="' . $descendant_link . '" class="descendant">' . $descendant->name . '</a>';
+		        echo "<a href='{$descendant_link}' class='descendant'><i class='fa fa-reply'></i> {$descendant->name}</a>";
+		        echo '</div>';
 			?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
