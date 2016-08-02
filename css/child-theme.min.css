@@ -7149,7 +7149,7 @@ a.skip-link {
   color: #c73a33; }
 
 #top {
-  background: transparent url("../src/img/header_final.jpg") no-repeat scroll left top/cover;
+  background: transparent url("../src/img/header_final.jpg") no-repeat scroll left top/100% 100%;
   padding: 38px 0;
   margin-bottom: 70px; }
 
@@ -7165,9 +7165,8 @@ a.skip-link {
 
 #top .moduletable.slogan {
   color: #fff;
-  font-size: 60px;
+  font-size: 34px;
   font-weight: bold;
-  line-height: 72px;
   text-align: center;
   text-transform: uppercase; }
 
@@ -7342,7 +7341,7 @@ ul#main-menu li.active a {
   padding-bottom: 20px;
   padding-top: 0; }
 
-.product-price {
+.prod-box .product-price {
   font-size: 28px;
   font-weight: 400;
   line-height: 32px;
@@ -7702,3 +7701,74 @@ a.descendant {
 
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
   width: 65%; }
+
+.up-sells li.product {
+  width: 25% !important; }
+
+/* inline form style */
+.cntctfrm_field_subject_wrap, #habla_expanded_div {
+  display: none; }
+
+.contakt-form {
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  background: #fff;
+  z-index: 999; }
+
+input.cntctfrm_contact_submit {
+  background-color: #c73a33;
+  float: right;
+  height: 38px;
+  border: 0;
+  color: white;
+  border-radius: 5px; }
+
+div#habla_topbar_div {
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #FFF;
+  padding: 10px;
+  cursor: pointer;
+  background: #c73a33; }
+
+a#habla_oplink_a {
+  color: #FFF;
+  cursor: pointer; }
+
+div#habla_expanded_div {
+  padding: 0 10px; }
+
+.wpcf7-submit {
+  background: #c73a33 none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  outline: medium none;
+  overflow: hidden;
+  padding: 12px 15px;
+  position: relative;
+  text-align: center;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s; }
+
+.wpcf7-form {
+  max-width: 320px;
+  margin-top: 10px; }
+
+.wc_payment_methods.payment_methods.methods {
+  display: none; }
+
+.price > strong {
+  font-size: 16px;
+  color: #000; }

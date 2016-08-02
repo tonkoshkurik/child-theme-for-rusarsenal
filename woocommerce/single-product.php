@@ -72,5 +72,6 @@ get_header( 'shop' ); ?>
 		// do_action( 'woocommerce_sidebar' );
 		// woocommerce_get_sidebar();
 	?> -->
+<div class="clearfix"></div>
 
 <?php get_footer( 'shop' ); ?>

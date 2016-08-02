@@ -12,10 +12,19 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
 
+
 function wc_remove_related_products( $args ) {
     return array();
 }
 add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
+
+// adding first and last name to email subject
+function skyverge_add_customer_to_email_subject( $subject, $order ) {
+    $subject .= ' от ' . $order->billing_first_name . ' ' . $order->billing_last_name;
+    return $subject;
+
+}
+add_filter( 'woocommerce_email_subject_new_order', 'skyverge_add_customer_to_email_subject', 10, 2 );
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
@@ -64,3 +73,69 @@ function theme_enqueue_styles() {
             'after_title' => '</h3>',
         ));
     }
+// custom filds for price
+
+// Display Fields
+add_action( 'woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields' );
+
+// Save Fields
+add_action( 'woocommerce_process_product_meta', 'woo_add_custom_general_fields_save' );
+
+function woo_add_custom_general_fields() {
+
+  global $woocommerce, $post;
+  
+  echo '<div class="options_group">';
+  
+  echo 'Оптовую цену введите в поле "Базовая цена (Р)"(выше), остальные ценовые диапазоны ниже.';
+    // От 50 тыс.р.
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => '_from_fifty_thousand', 
+            'label'       => __( 'От 50 тыс.р.', 'woocommerce' ), 
+            'placeholder' => '',
+            'desc_tip'    => 'true',
+            'description' =>  'Введите цену здесь'
+        )
+    );
+    // По запросу
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => '_on_request', 
+            'label'       => __( 'По запросу', 'woocommerce' ), 
+            'placeholder' => '',
+            'desc_tip'    => 'true',
+            'description' =>  'Введите цену здесь'
+        )
+    );
+    // Под заказ
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => '_by_order', 
+            'label'       => __( 'Под заказ', 'woocommerce' ), 
+            'placeholder' => '',
+            'desc_tip'    => 'true',
+            'description' => 'Введите цену здесь'
+        )
+    );
+  echo '</div>';
+    
+}
+
+// Save fields
+function woo_add_custom_general_fields_save( $post_id ){
+    
+    // От 50 тыс.р.
+    $woocommerce_text_field = $_POST['_from_fifty_thousand'];
+    if( !empty( $woocommerce_text_field ) )
+        update_post_meta( $post_id, '_from_fifty_thousand', esc_attr( $woocommerce_text_field ) );
+    // По запросу    
+    $woocommerce_text_field = $_POST['_on_request'];
+    if( !empty( $woocommerce_text_field ) )
+        update_post_meta( $post_id, '_on_request', esc_attr( $woocommerce_text_field ) );
+    // Под заказ
+    $woocommerce_text_field = $_POST['_by_order'];
+    if( !empty( $woocommerce_text_field ) )
+        update_post_meta( $post_id, '_by_order', esc_attr( $woocommerce_text_field ) );
+            
+}
