@@ -50,7 +50,7 @@
     color: $brand-primary;
 }
 #top {
-    background: rgba(0, 0, 0, 0) url("../src/img/header_final.jpg") no-repeat scroll left top / 100% 100% ;
+    background: rgba(0, 0, 0, 0) url("../src/img/header_1349x300.jpg") no-repeat scroll left top / 100% 100% ;
     padding: 38px 0;
     margin-bottom: 70px;
 }
@@ -59,7 +59,7 @@
     margin-top: 40px;
     padding: 0;
     position: relative;
-    z-index: 111;
+    z-index: 911;
 }
 .navbar-dark .dropdown-menu {
     background-color: #000;
@@ -85,7 +85,7 @@ ul#main-menu > li > a.nav-link {
     display: block;
     font: bold 16px/20px "Montserrat",sans-serif;
     margin-right: 4px;
-    padding: 20px 22px;
+    padding: 15px 14px;
     position: relative;
     text-transform: uppercase;
     z-index: 1;
@@ -111,6 +111,15 @@ ul#main-menu li.active a {
    transform: skewX(30deg);
    border-color: $brand-primary;
     border: 0;
+}
+ul.dropdown-menu {
+    transform: skewX(30deg)!important;
+}
+ul.dropdown-menu li {
+    transform: none !important;
+}
+ul.dropdown-menu li a{
+    transform: none !important;
 }
 
  // MENU END
@@ -203,10 +212,17 @@ ul#main-menu li.active a {
 }
 
 .vm-product-details-container {
-    background: rgba(0, 0, 0, 0) url("../src/img/vm-container-bg.jpg") no-repeat scroll left top / cover ;
+    // background: rgba(0, 0, 0, 0) url("../src/img/vm-container-bg.jpg") no-repeat scroll left top / cover ;
+    background-color: $brand-primary;
     overflow: hidden;
     padding: 20px;
     max-width: 300px;
+}
+.btn-position>a {
+    color: white;
+}
+.btn-position>a:hover {
+    color: black;
 }
 
 .simple-theme.woocommerce-products-carousel-all-in-one .woocommerce-products-carousel-all-in-one-details {
@@ -286,11 +302,14 @@ ul#main-menu li.active a {
 
 
 #latest_post {
-    background: rgba(0, 0, 0, 0) url("../src/img/blog_img.jpg") no-repeat scroll left top / cover ;
-    color: #fff;
+    // background: rgba(0, 0, 0, 0) url("../src/img/blog_img.jpg") no-repeat scroll left top / cover ;
+    background-color: $brand-primary;
+    background: #f2f2f2;
+    color: #000;
 }
 #latest_post h3 {
     text-align: center;
+    color: $brand-primary;
 }
 .relative {
     position: relative;
@@ -317,7 +336,7 @@ ul#main-menu li.active a {
     line-height: 20px;
     position: relative;
     text-align: right;
-    top: -20px;
+    top: -5px;
 }
 time, .item_hits, .item_category-name address, .item_createdby {
     margin: 0;
@@ -325,12 +344,15 @@ time, .item_hits, .item_category-name address, .item_createdby {
 }
 
 .item_content {
-    border: 2px solid #fff;
+    border: 2px solid #404040;
     margin-left: 75px;
     padding: 30px 30px 30px 200px;
     position: relative;
+    min-height: 225px;
 }
-
+.contakt-info {
+    font-weight: 300;
+}
 
 .dropdown-menu {
     background-clip: padding-box;
@@ -367,6 +389,10 @@ time, .item_hits, .item_category-name address, .item_createdby {
     font-size: 1.2em;
     display: block;
 }
+.readmore:hover {
+    text-decoration: underline;
+}
+
 
 .bascet {
     position:absolute;
@@ -387,7 +413,7 @@ time, .item_hits, .item_category-name address, .item_createdby {
     // float: left !important;
     // clear: left !important;
     padding: 5px;
-    font-weight: 600;
+    font-weight: 300;
 }
 .footer-menu {
     padding-left: 0;
@@ -399,8 +425,8 @@ time, .item_hits, .item_category-name address, .item_createdby {
     padding-right: 20px;
 }
 .podpis {
-    background-color: #000;
-    color: $brand-primary;
+    background-color: $brand-primary;
+    color: #fff;
     font-weight: 600;
 }
 // .footer-cat {
@@ -414,7 +440,7 @@ time, .item_hits, .item_category-name address, .item_createdby {
     float: none;
 }
 .podpis:hover {
-    color: #fff;
+    text-decoration: underline;
 }
 .price-list, .podpis {
     text-transform: uppercase;
@@ -453,6 +479,10 @@ ul.pruducts {
     position: absolute;
     margin-top: 11px;
     font-size: 1em;
+    color: #eaeaea !important;
+}
+.vm-product-details-container a {
+    color: #fff;
 }
 
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
@@ -506,9 +536,10 @@ ul.product-categories a:hover {
     background-color: $brand-primary;
     color: #fff;
 }
-.cat-parent i.fa.fa-plus-circle {
+.cat-parent i.fa.fa-plus-circle, .cat-parent i.fa.fa-minus-circle {
     float: right;
 }
+
 ul.product-categories  a {
     display: block;
     text-decoration: none;
@@ -539,9 +570,10 @@ ul.children {
 }
 .site-info {
     text-align: center;
+    margin-top: 15px;
 }
 p.logo-slogan {
-    font-size: 0.8em;
+    font-size: 1.2em;
     color: #fff;
 }
 // .container-fluid .container {
@@ -675,6 +707,7 @@ a.descendant {
     right: 10%;
     background: #fff;
     z-index: 999;
+    border: 1px solid $brand-primary;
 }
 input.cntctfrm_contact_submit {
     background-color: $brand-primary;
@@ -685,10 +718,6 @@ input.cntctfrm_contact_submit {
     border-radius: 5px;
 }
 div#habla_topbar_div {
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     color: #FFF;
     padding: 10px;
     cursor: pointer;
@@ -735,3 +764,114 @@ div#habla_expanded_div {
     font-size: 16px;
     color: #000;
 }
+i.fa.fa-arrow-circle-up {
+    padding-left: 3px;
+}
+
+.affix {
+    top: 0;
+    width: 100%;
+    margin: 0 !important;
+}
+.affix {
+    position: fixed;
+}
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    background-color: $brand-primary;
+}   
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+    background-color: #eee;
+}
+// REsponsive 
+
+
+@media only screen and (max-device-width: 480px) {
+    nav.navbar {
+        margin: 100px 0 25px 0;
+    }
+    .phone {
+        right: 100px;
+    }
+    ul#main-menu li.active a, ul#main-menu li.active {
+        transform: none;
+        border: 0px;
+    }
+    ul#main-menu li {
+    display: block;
+    width: 100%;
+    }
+
+    ul#main-menu > li > a.nav-link {
+    background: transparent none repeat scroll 0 0;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    color: #c73a33;
+    display: block;
+    font: bold 16px;
+    margin-right: 4px;
+    padding: 12px 12px;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+    .item_img {
+    left: 0;
+    margin-bottom: 0;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    transform: translate(0px, 0);
+    width: 235px;
+    z-index: 111;
+    }
+    .item_img .item_published {
+        display: block;
+        position: relative;
+        top: -20px;
+        text-align: left;
+    }
+    .item_content {
+        margin: 0;
+        border:0;
+        padding: 0;
+        position: relative;
+        padding-bottom: 50px;
+    }
+    .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
+        width: 46%;
+    }
+    .btn-position {
+        margin-top: 41px;
+        float: left;
+    }
+    ul.main_categories > li.product-category {
+        width: 46%;
+    }
+    .woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images{
+        width: 100%;
+    }
+    .woocommerce div.product .woocommerce-tabs ul.tabs {
+     float: none;
+    }
+    
+}
+@media (min-width: 1000px) and (max-width: 1280px){
+    #top {
+        background: rgba(0, 0, 0, 0) url("../src/img/header_1024x383.jpg") no-repeat scroll left top / 100% 100% ;
+    }
+}
+@media (min-width: 600px) and (max-width: 1100px){
+    #top {
+        background: rgba(0, 0, 0, 0) url("../src/img/header_768x334.jpg") no-repeat scroll left top / 100% 100% ;
+    }
+}
+@media (min-width: 320px) and (max-width: 500px){
+    #top {
+        background: rgba(0, 0, 0, 0) url("../src/img/header_375x444.jpg") no-repeat scroll left top / 100% 100% ;
+    }
+}
+// zxfXAfYSB0%411q3%KC^@n7z

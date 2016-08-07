@@ -35,12 +35,14 @@ global $product;
 		 if($_on_request !== ''){
 		 	echo "<br><strong>По запросу</strong> $_on_request $rur <br>";
 		 } else { ?>
-		 	<strong>ОПТ</strong> <?php echo $product->get_price_html();  
+		 	<strong>ОПТ</strong> <?php echo $product->get_price_html();
+		 	echo "<br>";  
 		 	} 
 		 if($_by_order !== ''){
 		 	echo "<strong>Под заказ</strong> $_by_order $rur ";
 		 } else {
-		 	 echo "<strong>От 50 тыс.р.</strong> $_from_fifty_thousand $rur <br>";
+		 	if($_from_fifty_thousand !== ''){ echo "<strong>От 50 тыс.р.</strong> $_from_fifty_thousand $rur <br>"; }
+		 	 
 		 }
 		 	?>
 	</p>

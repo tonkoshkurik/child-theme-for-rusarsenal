@@ -30,16 +30,18 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.css', array());
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), '0.1.0', true );
+    wp_enqueue_script( 'jquery', get_template_directory_uri() . 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), '1.12.4', true );
 }
+
     if (function_exists('register_sidebar')) {
-    	register_sidebar(array(
-    		'name'=> 'Top Tabs',
-    		'id' => 'top_tabs',
-    		'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    		'after_widget' => '</li>',
-    		'before_title' => '<h2 class="offscreen">',
-    		'after_title' => '</h2>',
-    	));
+    	// register_sidebar(array(
+    	// 	'name'=> 'Top Tabs',
+    	// 	'id' => 'top_tabs',
+    	// 	'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    	// 	'after_widget' => '</li>',
+    	// 	'before_title' => '<h2 class="offscreen">',
+    	// 	'after_title' => '</h2>',
+    	// ));
     	register_sidebar(array(
     		'name'=> 'Top Sidebar',
     		'id' => 'top_sidebar',
@@ -48,22 +50,22 @@ function theme_enqueue_styles() {
     		'before_title' => '<h3>',
     		'after_title' => '</h3>',
     	));
-    	register_sidebar(array(
-    		'name'=> 'WooCommerce Cart',
-    		'id' => 'woo_cart',
-    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    		'after_widget' => '</div>',
-    		'before_title' => '<h3 class="hidden">',
-    		'after_title' => '</h3>',
-    	));
-    	register_sidebar(array(
-    		'name'=> 'Right Sidebar',
-    		'id' => 'right_sidebar',
-    		'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    		'after_widget' => '</li>',
-    		'before_title' => '<h3>',
-    		'after_title' => '</h3>',
-    	));
+    	// register_sidebar(array(
+    	// 	'name'=> 'WooCommerce Cart',
+    	// 	'id' => 'woo_cart',
+    	// 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    	// 	'after_widget' => '</div>',
+    	// 	'before_title' => '<h3 class="hidden">',
+    	// 	'after_title' => '</h3>',
+    	// ));
+    	// register_sidebar(array(
+    	// 	'name'=> 'Right Sidebar',
+    	// 	'id' => 'right_sidebar',
+    	// 	'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    	// 	'after_widget' => '</li>',
+    	// 	'before_title' => '<h3>',
+    	// 	'after_title' => '</h3>',
+    	// ));
         register_sidebar(array(
             'name'=> 'Right Footer info',
             'id' => 'right_footer',
@@ -138,4 +140,12 @@ function woo_add_custom_general_fields_save( $post_id ){
     if( !empty( $woocommerce_text_field ) )
         update_post_meta( $post_id, '_by_order', esc_attr( $woocommerce_text_field ) );
             
+}
+
+add_filter( 'woocommerce_product_tabs', 'sb_woo_remove_reviews_tab', 98);
+function sb_woo_remove_reviews_tab($tabs) {
+
+ unset($tabs['reviews']);
+
+ return $tabs;
 }
